@@ -10,24 +10,18 @@ import { TodosComponent } from './todos.component';
 import { todos } from './todos.reducers';
 import { TodosService } from './todos.service';
 import { TodosEffects } from './todos.effects';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports:      [ 
-    BrowserModule, 
+  imports: [
+    BrowserModule,
     FormsModule,
-    StoreModule.forRoot({todos}),
-    EffectsModule.forRoot([TodosEffects])
+    HttpClientModule,
+    StoreModule.forRoot({ todos }),
+    EffectsModule.forRoot([TodosEffects]),
   ],
-  declarations: [ 
-    AppComponent, 
-    TodoComponent,
-    TodosComponent
-  ],
-  providers: [
-    TodosService
-  ],
-  bootstrap: [
-    AppComponent
- ]
+  declarations: [AppComponent, TodoComponent, TodosComponent],
+  providers: [TodosService],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
